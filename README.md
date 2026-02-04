@@ -5,7 +5,7 @@ Agent-friendly local memory. Store and search notes across conversations.
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yourusername/jot/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
 ```
 
 ## Usage

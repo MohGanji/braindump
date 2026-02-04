@@ -1,6 +1,6 @@
 #!/bin/bash
 # jot universal installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/yourusername/jot/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
 
 set -e
 
@@ -11,8 +11,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# GitHub repository (update this when you publish)
-REPO="yourusername/jot"
+# GitHub repository
+REPO="MohGanji/jot"
 GITHUB_RELEASES="https://github.com/${REPO}/releases/latest/download"
 
 # Detect OS
