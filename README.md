@@ -59,11 +59,11 @@ See [benchmark/results.md](benchmark/results.md) for detailed results.
 
 ## Releasing
 
-Push a tag to trigger automatic builds:
+Push a tag to trigger automatic builds. Tags follow the pattern `vYEAR.MO.DAY` (e.g., `v2026.02.03`):
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v2026.02.03
+git push origin v2026.02.03
 ```
 
 GitHub Actions builds binaries for macOS, Linux, and Windows.
