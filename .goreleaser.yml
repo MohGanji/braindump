@@ -20,7 +20,7 @@ builds:
       - goos: windows
         goarch: arm64
     ldflags:
-      - -s -w
+      - -s -w -X github.com/MohGanji/braindump/cmd.Version={{.Version}}
 
 archives:
   - format: binary

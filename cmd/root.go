@@ -13,12 +13,16 @@ var (
 	store      storage.Store
 	storePath  string
 	formatFlag string
+
+	// Version is set at build time via ldflags
+	Version = "dev"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "braindump",
-	Short: "Agent-friendly local memory",
-	Long:  `Store and search notes across conversations. Fast, local, and persistent.`,
+	Use:     "braindump",
+	Short:   "Agent-friendly local memory",
+	Long:    `Store and search notes across conversations. Fast, local, and persistent.`,
+	Version: Version,
 	Example: `  braindump add api-creds --title "Stripe Key" --content "sk_test_..."
   braindump search "stripe"
   braindump list api-creds
