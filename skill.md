@@ -72,4 +72,4 @@ Proactively store information that would be lost when the conversation ends:
 
 ## Storage
 
-`~/.jot/` — Markdown files with YAML frontmatter. SQLite FTS5 search. Scales to 100K+ notes.
+`~/.jot/` — Plain text Markdown files with YAML frontmatter. Each category is a directory.
