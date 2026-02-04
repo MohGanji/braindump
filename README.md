@@ -21,6 +21,8 @@ To enable your AI agent to use braindump as long-term memory:
 
 The agent will then proactively store and retrieve context across conversations.
 
+You can also manually trigger memory lookup by prompting: **"use your brain"**
+
 ## Usage
 
 ```bash
