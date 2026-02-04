@@ -8,6 +8,19 @@ Agent-friendly local memory. Store and search notes across conversations.
 curl -fsSL https://raw.githubusercontent.com/MohGanji/braindump/main/install.sh | bash
 ```
 
+## Agent Setup
+
+To enable your AI agent to use braindump as long-term memory:
+
+1. **Add the skill** — Copy [skill.md](skill.md) to your agent's skills directory (e.g., `.cursor/skills/braindump.md`)
+
+2. **Enable in your agent rules** — Add this line to your `agent.md` or rules file:
+   ```
+   Use braindump as a long term memory.
+   ```
+
+The agent will then proactively store and retrieve context across conversations.
+
 ## Usage
 
 ```bash
