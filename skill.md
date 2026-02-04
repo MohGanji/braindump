@@ -1,6 +1,8 @@
 # jot - Agent Memory
 
-Local, searchable notes that persist across conversations. Use this to remember anything that should survive beyond the current session.
+Local, searchable notes that persist across conversations. Silently capture contextual information as longer-term memory that survives beyond the current session.
+
+When asked to **"use your memory"** or **"check jot"** in any query, search jot for relevant context before performing the task.
 
 ## Install
 
@@ -26,28 +28,48 @@ jot categories
 jot tags
 ```
 
-## When to Use
+Add `--format json` for programmatic use.
 
-**Always store information that:**
-- Comes from external sources (user-provided context, fetched data, research findings)
-- Represents historical knowledge (past decisions, resolved issues, learned patterns)
-- Needs to be reused later (credentials, configurations, preferences)
-- Would be lost when the conversation ends
+## When to Capture
 
-**Examples of what to store:**
-- User preferences and project-specific conventions
-- API keys, endpoints, credentials, and configurations
-- Gotchas, quirks, and workarounds discovered during work
-- Decisions made and their rationale
-- External context the user shares (documentation, specs, requirements)
-- Debugging findings and solutions to problems
-- Patterns and approaches that worked well
-- Any information the user explicitly asks to remember
+Proactively store information that would be lost when the conversation ends:
 
-**When retrieving:** Before starting tasks, search for relevant stored context that might help.
+- Business requirements, use cases, user stories
+- Useful URLs and variables (API docs, endpoints, environment configs)
+- API specifications, field mappings, data transformations
+- System constraints, assumptions, exclusions
+- Integration-specific behavior, quirks, gotchas
+- Domain terminology, aliases, abbreviations
+- Technical decisions with rationale
+- Known issues, limitations, workarounds
+- Configuration requirements, thresholds, defaults
+- User preferences and project conventions
+- External context shared by the user (specs, documentation)
+- Resolved bugs and their solutions
+
+## Categories and Structure
+
+**Categories** represent cohesive domain areas: an integration, a system capability, a distinct module, or a logical boundary. Choose categories intuitively based on context—use existing categories when appropriate, create new ones when needed.
+
+**Titles** should be searchable keywords that narrow context effectively.
+
+**Content** should be concise, fact-dense paragraphs. Use bullet points for lists. Include code examples only when they clarify behavior.
+
+## Update Strategy
+
+- **Search existing content first** — refine or complete if found, add new note if not
+- **Merge related information** under existing categories/titles when possible
+- **Preserve existing content** unless contradicted by new information
+- **Focus on evergreen knowledge**, not conversation artifacts
+
+## What NOT to Capture
+
+- Temporary debugging sessions or transient state
+- File paths or code snippets without context
+- General programming knowledge available in docs
+- Meta-commentary about the conversation itself
+- Information that changes frequently without lasting value
 
 ## Storage
 
-`~/.jot/` - Markdown files with FTS5 search. Immediately searchable, scales to 100K+ notes.
-
-Add `--format json` for programmatic use.
+`~/.jot/` — Markdown files with YAML frontmatter. SQLite FTS5 search. Scales to 100K+ notes.
