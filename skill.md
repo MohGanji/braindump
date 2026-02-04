@@ -1,23 +1,23 @@
 # jot - Agent Memory
 
-Local, searchable notes that persist across conversations.
+Local, searchable notes that persist across conversations. Use this to remember anything that should survive beyond the current session.
 
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yourusername/jot/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
 ```
 
 ## Commands
 
 ```bash
 # Save
-jot add api-creds --title "Stripe Key" --content "sk_test_..." --tags "stripe,payment"
+jot add <category> --title "..." --content "..." --tags "tag1,tag2"
 
 # Retrieve
-jot search "stripe"
-jot list api-creds
-jot get api-creds "stripe"
+jot search "query"
+jot list [category]
+jot get <category> "pattern"
 
 # Manage
 jot update <id> --content "..."
@@ -28,10 +28,23 @@ jot tags
 
 ## When to Use
 
-- Store API keys, endpoints, configuration
-- Document API quirks and gotchas
-- Remember decisions, TODOs, bugs across sessions
-- Fast retrieval (< 10ms search)
+**Always store information that:**
+- Comes from external sources (user-provided context, fetched data, research findings)
+- Represents historical knowledge (past decisions, resolved issues, learned patterns)
+- Needs to be reused later (credentials, configurations, preferences)
+- Would be lost when the conversation ends
+
+**Examples of what to store:**
+- User preferences and project-specific conventions
+- API keys, endpoints, credentials, and configurations
+- Gotchas, quirks, and workarounds discovered during work
+- Decisions made and their rationale
+- External context the user shares (documentation, specs, requirements)
+- Debugging findings and solutions to problems
+- Patterns and approaches that worked well
+- Any information the user explicitly asks to remember
+
+**When retrieving:** Before starting tasks, search for relevant stored context that might help.
 
 ## Storage
 
