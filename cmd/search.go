@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	"github.com/spf13/cobra"
 )
 
@@ -17,9 +17,9 @@ var (
 var searchCmd = &cobra.Command{
 	Use:   "search <query>",
 	Short: "Search notes",
-	Example: `  jot search "stripe"
-  jot search "oauth" --in api-quirks
-  jot search "api" --tag payment,sandbox`,
+	Example: `  braindump search "stripe"
+  braindump search "oauth" --in api-quirks
+  braindump search "api" --tag payment,sandbox`,
 	Args: cobra.ExactArgs(1),
 	RunE: runSearch,
 }

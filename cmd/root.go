@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/moganji/jot/pkg/storage"
+	"github.com/MohGanji/braindump/pkg/storage"
 	"github.com/spf13/cobra"
 )
 
@@ -16,13 +16,13 @@ var (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "jot",
+	Use:   "braindump",
 	Short: "Agent-friendly local memory",
 	Long:  `Store and search notes across conversations. Fast, local, and persistent.`,
-	Example: `  jot add api-creds --title "Stripe Key" --content "sk_test_..."
-  jot search "stripe"
-  jot list api-creds
-  jot get api-creds "stripe"`,
+	Example: `  braindump add api-creds --title "Stripe Key" --content "sk_test_..."
+  braindump search "stripe"
+  braindump list api-creds
+  braindump get api-creds "stripe"`,
 }
 
 func Execute() error {
@@ -47,7 +47,7 @@ func initStore() {
 func getDefaultStorePath() string {
 	home, err := os.UserHomeDir()
 	if err != nil {
-		return ".jot"
+		return ".braindump"
 	}
-	return filepath.Join(home, ".jot")
+	return filepath.Join(home, ".braindump")
 }

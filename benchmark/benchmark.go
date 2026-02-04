@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/moganji/jot/pkg/models"
-	"github.com/moganji/jot/pkg/storage"
+	"github.com/MohGanji/braindump/pkg/models"
+	"github.com/MohGanji/braindump/pkg/storage"
 )
 
 type BenchResult struct {
@@ -35,7 +35,7 @@ func generateContent(wordCount int) string {
 }
 
 func benchmark(noteCount, categoryCount, wordCount int) BenchResult {
-	tmpDir := filepath.Join(os.TempDir(), fmt.Sprintf("jot-bench-%d", time.Now().UnixNano()))
+	tmpDir := filepath.Join(os.TempDir(), fmt.Sprintf("braindump-bench-%d", time.Now().UnixNano()))
 	defer os.RemoveAll(tmpDir)
 
 	store, _ := storage.NewFileStore(tmpDir)

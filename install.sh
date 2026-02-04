@@ -1,6 +1,6 @@
 #!/bin/bash
-# jot universal installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
+# braindump universal installer
+# Usage: curl -fsSL https://raw.githubusercontent.com/MohGanji/braindump/main/install.sh | bash
 
 set -e
 
@@ -12,7 +12,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # GitHub repository
-REPO="MohGanji/jot"
+REPO="MohGanji/braindump"
 GITHUB_RELEASES="https://github.com/${REPO}/releases/latest/download"
 
 # Detect OS
@@ -121,7 +121,7 @@ update_shell_rc() {
         if ! echo "$PATH" | grep -q "$install_dir"; then
             info "Adding $install_dir to PATH in $rc_file"
             echo "" >> "$rc_file"
-            echo "# Added by jot installer" >> "$rc_file"
+            echo "# Added by braindump installer" >> "$rc_file"
             echo "export PATH=\"$install_dir:\$PATH\"" >> "$rc_file"
             success "Updated $rc_file"
             return 0
@@ -136,11 +136,11 @@ download_binary() {
     local arch=$2
     local install_dir=$3
 
-    local binary_name="jot-${os}-${arch}"
+    local binary_name="braindump-${os}-${arch}"
     [ "$os" = "windows" ] && binary_name="${binary_name}.exe"
 
     local download_url="${GITHUB_RELEASES}/${binary_name}"
-    local temp_file="/tmp/jot-install-$$"
+    local temp_file="/tmp/braindump-install-$$"
 
     info "Downloading pre-built binary from GitHub..."
 
@@ -150,13 +150,13 @@ download_binary() {
 
             # Try to move to install dir
             if [ -w "$install_dir" ]; then
-                mv "$temp_file" "$install_dir/jot"
+                mv "$temp_file" "$install_dir/braindump"
             else
                 info "Need sudo to install to $install_dir"
-                sudo mv "$temp_file" "$install_dir/jot"
+                sudo mv "$temp_file" "$install_dir/braindump"
             fi
 
-            success "Installed jot to $install_dir/jot"
+            success "Installed braindump to $install_dir/braindump"
             return 0
         fi
     elif command_exists wget; then
@@ -164,13 +164,13 @@ download_binary() {
             chmod +x "$temp_file"
 
             if [ -w "$install_dir" ]; then
-                mv "$temp_file" "$install_dir/jot"
+                mv "$temp_file" "$install_dir/braindump"
             else
                 info "Need sudo to install to $install_dir"
-                sudo mv "$temp_file" "$install_dir/jot"
+                sudo mv "$temp_file" "$install_dir/braindump"
             fi
 
-            success "Installed jot to $install_dir/jot"
+            success "Installed braindump to $install_dir/braindump"
             return 0
         fi
     fi
@@ -200,41 +200,41 @@ build_from_source() {
 
     info "Cloning repository..."
     if command_exists git; then
-        git clone "https://github.com/${REPO}.git" jot-src >/dev/null 2>&1
-        cd jot-src
+        git clone "https://github.com/${REPO}.git" braindump-src >/dev/null 2>&1
+        cd braindump-src
     else
         error "Git is not installed"
         exit 1
     fi
 
     info "Building binary..."
-    go build -o jot . >/dev/null 2>&1
+    go build -o braindump . >/dev/null 2>&1
 
     if [ -w "$install_dir" ]; then
-        mv jot "$install_dir/jot"
+        mv braindump "$install_dir/braindump"
     else
         info "Need sudo to install to $install_dir"
-        sudo mv jot "$install_dir/jot"
+        sudo mv braindump "$install_dir/braindump"
     fi
 
     # Cleanup
     cd /tmp
     rm -rf "$temp_dir"
 
-    success "Built and installed jot to $install_dir/jot"
+    success "Built and installed braindump to $install_dir/braindump"
 }
 
 # Main installation
 main() {
     echo ""
     print_msg "$BLUE" "╔════════════════════════════════════╗"
-    print_msg "$BLUE" "║   jot Universal Installer   ║"
+    print_msg "$BLUE" "║  braindump Universal Installer  ║"
     print_msg "$BLUE" "╚════════════════════════════════════╝"
     echo ""
 
     # Check if already installed
-    if command_exists jot; then
-        warn "jot is already installed at: $(which jot)"
+    if command_exists braindump; then
+        warn "braindump is already installed at: $(which braindump)"
         echo ""
 
         # Skip prompt if non-interactive or NOTES_SKIP_PROMPT is set
@@ -247,7 +247,7 @@ main() {
             fi
         else
             info "Skipping reinstall (non-interactive mode or already installed)"
-            success "jot is ready to use!"
+            success "braindump is ready to use!"
             exit 0
         fi
     fi
@@ -289,7 +289,7 @@ main() {
     fi
 
     # Verify installation
-    if [ -f "$install_dir/jot" ]; then
+    if [ -f "$install_dir/braindump" ]; then
         success "Installation complete!"
         echo ""
 
@@ -300,7 +300,7 @@ main() {
         echo ""
 
         if [ $path_updated -eq 1 ]; then
-            warn "PATH was updated. Run this command to use jot now:"
+            warn "PATH was updated. Run this command to use braindump now:"
             echo ""
             echo "    export PATH=\"$install_dir:\$PATH\""
             echo ""
@@ -313,20 +313,20 @@ main() {
         if [ $path_updated -eq 1 ]; then
             echo "    export PATH=\"$install_dir:\$PATH\""
         fi
-        echo "    jot add test --title \"Hello\" --content \"World\""
-        echo "    jot search \"hello\""
-        echo "    jot list"
-        echo "    jot help"
+        echo "    braindump add test --title \"Hello\" --content \"World\""
+        echo "    braindump search \"hello\""
+        echo "    braindump list"
+        echo "    braindump help"
         echo ""
 
         # Try to add to PATH for current session
         export PATH="$install_dir:$PATH"
 
-        if command_exists jot; then
-            success "jot command is ready to use!"
+        if command_exists braindump; then
+            success "braindump command is ready to use!"
             echo ""
             echo "Current version:"
-            jot help | head -n 1
+            braindump help | head -n 1
         fi
     else
         error "Installation failed"

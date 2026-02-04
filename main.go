@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/moganji/jot/cmd"
+	"github.com/MohGanji/braindump/cmd"
 )
 
 func main() {

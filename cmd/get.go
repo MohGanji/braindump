@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	"github.com/spf13/cobra"
 )
 
 var getCmd = &cobra.Command{
 	Use:   "get <category> [pattern]",
 	Short: "Get note(s) from a category",
-	Example: `  jot get api-creds
-  jot get api-creds "stripe"`,
+	Example: `  braindump get api-creds
+  braindump get api-creds "stripe"`,
 	Args: cobra.MinimumNArgs(1),
 	RunE: runGet,
 }

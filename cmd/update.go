@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	"github.com/spf13/cobra"
 )
 
@@ -18,8 +18,8 @@ var (
 var updateCmd = &cobra.Command{
 	Use:   "update <id>",
 	Short: "Update a note",
-	Example: `  jot update a1b2c3d4 --content "new content"
-  jot update a1b2c3d4 --title "New Title" --tags "tag1,tag2"`,
+	Example: `  braindump update a1b2c3d4 --content "new content"
+  braindump update a1b2c3d4 --title "New Title" --tags "tag1,tag2"`,
 	Args: cobra.ExactArgs(1),
 	RunE: runUpdate,
 }
@@ -27,7 +27,7 @@ var updateCmd = &cobra.Command{
 var appendCmd = &cobra.Command{
 	Use:   "append <id> <content>",
 	Short: "Append content to a note",
-	Example: `  jot append a1b2c3d4 "Additional information"`,
+	Example: `  braindump append a1b2c3d4 "Additional information"`,
 	Args: cobra.ExactArgs(2),
 	RunE: runAppend,
 }

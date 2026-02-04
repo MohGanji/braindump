@@ -1,31 +1,31 @@
-# jot - Agent Memory
+# braindump - Agent Memory
 
 Local, searchable notes that persist across conversations. Silently capture contextual information as longer-term memory that survives beyond the current session.
 
-When asked to **"use your memory"** or **"check jot"** in any query, search jot for relevant context before performing the task.
+When asked to **"use your brain"** or **"check braindump"** in any query, search braindump for relevant context before performing the task.
 
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MohGanji/braindump/main/install.sh | bash
 ```
 
 ## Commands
 
 ```bash
 # Save
-jot add <category> --title "..." --content "..." --tags "tag1,tag2"
+braindump add <category> --title "..." --content "..." --tags "tag1,tag2"
 
 # Retrieve
-jot search "query"
-jot list [category]
-jot get <category> "pattern"
+braindump search "query"
+braindump list [category]
+braindump get <category> "pattern"
 
 # Manage
-jot update <id> --content "..."
-jot delete <id>
-jot categories
-jot tags
+braindump update <id> --content "..."
+braindump delete <id>
+braindump categories
+braindump tags
 ```
 
 Add `--format json` for programmatic use.
@@ -72,4 +72,4 @@ Proactively store information that would be lost when the conversation ends:
 
 ## Storage
 
-`~/.jot/` — Plain text Markdown files with YAML frontmatter. Each category is a directory.
+`~/.braindump/` — Plain text Markdown files with YAML frontmatter. Each category is a directory.

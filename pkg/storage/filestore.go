@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	_ "modernc.org/sqlite"
 	"gopkg.in/yaml.v3"
 )

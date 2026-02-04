@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 )
 
 type Store interface {

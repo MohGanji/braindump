@@ -2,9 +2,9 @@ module benchmark
 
 go 1.25.5
 
-replace github.com/moganji/jot => ../
+replace github.com/MohGanji/braindump => ../
 
-require github.com/moganji/jot v0.0.0-00010101000000-000000000000
+require github.com/MohGanji/braindump v0.0.0-00010101000000-000000000000
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect

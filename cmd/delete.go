@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	"github.com/spf13/cobra"
 )
 
 var deleteCmd = &cobra.Command{
 	Use:   "delete <id>",
 	Short: "Delete a note",
-	Example: `  jot delete a1b2c3d4`,
+	Example: `  braindump delete a1b2c3d4`,
 	Args: cobra.ExactArgs(1),
 	RunE: runDelete,
 }

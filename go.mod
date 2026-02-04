@@ -1,4 +1,4 @@
-module github.com/moganji/jot
+module github.com/MohGanji/braindump
 
 go 1.25.5
 

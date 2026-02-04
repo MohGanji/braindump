@@ -1,12 +1,12 @@
-project_name: jot
+project_name: braindump
 
 before:
   hooks:
     - go mod tidy
 
 builds:
-  - id: jot
-    binary: jot
+  - id: braindump
+    binary: braindump
     env:
       - CGO_ENABLED=0
     goos:
@@ -32,7 +32,7 @@ checksum:
 release:
   github:
     owner: MohGanji
-    name: jot
+    name: braindump
   draft: false
   prerelease: auto
 

@@ -29,7 +29,7 @@ func NewNote(category, title, content string, tags []string) *Note {
 		Updated:  now,
 		Metadata: map[string]string{
 			"created_by": "agent",
-			"source":     "jot",
+			"source":     "braindump",
 		},
 	}
 }

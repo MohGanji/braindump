@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/moganji/jot/pkg/models"
+	"github.com/MohGanji/braindump/pkg/models"
 	"github.com/spf13/cobra"
 )
 
@@ -20,10 +20,10 @@ var (
 var addCmd = &cobra.Command{
 	Use:   "add <category> [title] [content]",
 	Short: "Add a new note",
-	Example: `  jot add api-creds --title "Stripe Key" --content "sk_test_..."
-  jot add api-creds "Stripe Key" "sk_test_..."
-  echo "sk_test_..." | jot add api-creds --title "Stripe Key"
-  jot add api-creds --title "Stripe" --content "..." --tags "stripe,payment"`,
+	Example: `  braindump add api-creds --title "Stripe Key" --content "sk_test_..."
+  braindump add api-creds "Stripe Key" "sk_test_..."
+  echo "sk_test_..." | braindump add api-creds --title "Stripe Key"
+  braindump add api-creds --title "Stripe" --content "..." --tags "stripe,payment"`,
 	Args: cobra.MinimumNArgs(1),
 	RunE: runAdd,
 }

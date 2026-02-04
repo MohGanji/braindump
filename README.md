@@ -1,33 +1,33 @@
-# jot
+# braindump
 
 Agent-friendly local memory. Store and search notes across conversations.
 
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MohGanji/jot/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MohGanji/braindump/main/install.sh | bash
 ```
 
 ## Usage
 
 ```bash
-jot add api-creds --title "Stripe Key" --content "sk_test_..."
-jot search "stripe"
-jot list api-creds
-jot get api-creds "stripe"
+braindump add api-creds --title "Stripe Key" --content "sk_test_..."
+braindump search "stripe"
+braindump list api-creds
+braindump get api-creds "stripe"
 ```
 
 ## Commands
 
 ```bash
-jot add <category> --title "..." --content "..." [--tags "..."]
-jot search <query> [--in category] [--tag tag1,tag2]
-jot list [category]
-jot get <category> [pattern]
-jot update <id> --content "..." [--title "..."] [--tags "..."]
-jot delete <id>
-jot categories
-jot tags
+braindump add <category> --title "..." --content "..." [--tags "..."]
+braindump search <query> [--in category] [--tag tag1,tag2]
+braindump list [category]
+braindump get <category> [pattern]
+braindump update <id> --content "..." [--title "..."] [--tags "..."]
+braindump delete <id>
+braindump categories
+braindump tags
 ```
 
 Add `--format json` to any command for JSON output.
@@ -35,7 +35,7 @@ Add `--format json` to any command for JSON output.
 ## Storage
 
 ```
-~/.jot/
+~/.braindump/
 ├── api-creds/
 │   └── stripe-key.md
 ├── api-quirks/

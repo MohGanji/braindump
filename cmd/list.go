@@ -11,8 +11,8 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list [category]",
 	Short: "List notes",
-	Example: `  jot list
-  jot list api-creds`,
+	Example: `  braindump list
+  braindump list api-creds`,
 	Args: cobra.MaximumNArgs(1),
 	RunE: runList,
 }
