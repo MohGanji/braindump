@@ -1,0 +1,30 @@
+# Binaries
+jot
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+dist/
+
+# Dependencies
+vendor/
+
+# Go workspace
+go.work
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data
+.jot/
+.claude/
