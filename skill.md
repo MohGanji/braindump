@@ -2,7 +2,9 @@
 
 Local, searchable notes that persist across conversations. Silently capture contextual information as longer-term memory that survives beyond the current session.
 
-When asked to **"use your brain"** or **"check braindump"** in any query, search braindump for relevant context before performing the task.
+Manual triggers:
+- **"use your brain"** — search braindump for relevant context before performing the task
+- **"braindump this"** — store the current context/information for later retrieval
 
 ## Install
 
