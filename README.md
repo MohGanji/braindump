@@ -10,16 +10,19 @@ curl -fsSL https://raw.githubusercontent.com/MohGanji/braindump/main/install.sh 
 
 ## Agent Setup
 
-To enable your AI agent to use braindump as long-term memory:
+Install the skill from [skills.sh](https://skills.sh):
 
-1. **Add the skill** — Copy [skill.md](skill.md) to your agent's skills directory (e.g., `.cursor/skills/braindump.md`)
+```bash
+npx skills add https://github.com/MohGanji/braindump --skill braindump
+```
 
-2. **Enable in your agent rules** — Add this line to your `agent.md` or rules file:
-   ```
-   Use braindump as a long term memory.
-   ```
+Then add this line to your `CLAUDE.md`, `AGENTS.md`, or equivalent agent rules file:
 
-The agent will then proactively store and retrieve context across conversations.
+```
+Use braindump skill proactively and silently when appropriate.
+```
+
+The skill auto-installs the CLI and teaches your agent to proactively store and retrieve context across conversations.
 
 You can also manually trigger memory operations by prompting:
 - **"use your brain"** — retrieve relevant context
